@@ -30,5 +30,6 @@ body {
   margin: auto;
   display:flex;
   background-color: #f4f1ec;
+  justify-content: center;
   
 }

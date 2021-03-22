@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css">
   <link rel="stylesheet" href="/styles/header.css" type="text/css">
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -41,55 +42,18 @@
   </header>
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus autem sapiente nam maxime, similique ea
-      recusandae quas deserunt accusamus, quisquam molestias ad obcaecati dolores? Maiores enim explicabo reiciendis.
-      Vel, ab.
-      Repellat dicta amet eius ratione! Recusandae ipsam repudiandae cumque fuga rem eaque possimus optio, culpa itaque
-      aspernatur nulla ad eligendi illo non labore adipisci molestias nihil doloremque suscipit dicta sapiente!
-      Doloribus in harum quas porro debitis veniam! A libero molestiae, quia repellendus blanditiis odit. Ratione
-      laboriosam suscipit dolorem eveniet deserunt repellat porro sunt? Tempora et laborum doloribus provident
-      praesentium delectus.
-      Dignissimos accusamus earum, exercitationem rerum sint magnam cupiditate quidem, amet, harum itaque laudantium
-      laborum dolorem perferendis? Eum ratione voluptates doloribus harum facilis dolor quas unde itaque, atque repellat
-      dicta quos.
-      Quae, repudiandae, perferendis maxime dolores quisquam ut voluptatum obcaecati vel quaerat et eveniet at facere
-      soluta pariatur optio quasi fugit magni sapiente nihil, voluptatem fuga inventore. Sunt at ducimus odio!
-      Numquam repellendus quos illo ut delectus dolore, unde, eius culpa tenetur animi architecto facere dolorem
-      voluptas minus nemo, earum quia debitis nisi. Saepe impedit optio quaerat voluptas enim, reiciendis quibusdam.
-      Culpa, mollitia corrupti. Eum repudiandae nemo laborum consectetur quae, delectus non, deserunt alias voluptate
-      placeat laboriosam ex magni dicta aliquam ullam vel adipisci. Excepturi numquam, quibusdam consequuntur aliquam
-      explicabo nesciunt.
-      Mollitia est omnis temporibus. Corrupti quas, tempora eum beatae animi nulla, earum recusandae vero magnam fuga ea
-      eligendi blanditiis voluptates fugiat ullam illo quos fugit obcaecati doloribus quidem sit quibusdam?
-      Perspiciatis officiis totam nostrum porro soluta a repudiandae accusamus, vel dicta modi beatae dolore neque
-      quaerat corporis officia. Ipsam mollitia nostrum placeat hic, quia voluptate delectus corporis nemo quasi in!
-      Perferendis recusandae dicta officia praesentium ipsa enim rerum omnis assumenda, doloremque facere beatae. Libero
-      reiciendis cum tempore laboriosam ab ullam minima illum aperiam assumenda! Modi sed obcaecati aliquid qui odit?
-      Neque iusto rerum cum eligendi assumenda, iure tempora sit ipsam quas voluptatum ratione eveniet necessitatibus
-      adipisci sunt veritatis quo omnis ex vitae dolorum eum consequuntur aperiam obcaecati inventore! Deserunt, magnam!
-      Odio dignissimos pariatur excepturi, perferendis sunt doloribus sequi accusantium exercitationem. Doloremque ipsa
-      delectus, minima asperiores animi reiciendis labore sequi esse aperiam quam qui beatae veniam tenetur
-      consequuntur, necessitatibus sed? Nisi.
-      Voluptatum similique tenetur corporis illum quia quis quo consectetur nobis maiores eligendi voluptas, itaque
-      excepturi rem dolore expedita accusamus pariatur laboriosam ut doloribus praesentium voluptatem enim natus ducimus
-      minima! Ex.
-      Natus ipsum blanditiis quod hic rem ullam minus esse, impedit culpa quam possimus. Ex quia eveniet quos nesciunt
-      ratione iusto. Esse rerum laudantium saepe, quas voluptatem nihil blanditiis corrupti unde?
-      Dolorum error recusandae animi nihil similique, numquam nemo voluptas illum adipisci iure exercitationem delectus
-      commodi? Molestiae, natus! Eum, reprehenderit! Quia dolore nostrum, sit laudantium obcaecati ipsum eveniet
-      excepturi velit quos!
-      Iste ut vitae ipsum optio quos, repellendus nihil ipsam itaque alias quae maiores asperiores consequatur, animi,
-      fugiat culpa et. Non voluptate earum iure facere, veritatis necessitatibus natus eius totam delectus!
-      Perspiciatis expedita placeat, sequi eum assumenda cupiditate tempore, rem earum optio quae autem neque atque. Eos
-      eaque rerum alias aut eligendi est, suscipit eveniet et unde. Quae exercitationem necessitatibus ad?
-      Quidem natus fuga consequuntur iste maxime quasi necessitatibus, nisi minus expedita ab voluptatem quibusdam et
-      unde facere inventore tempore reiciendis, modi labore voluptate ullam. Consectetur ipsa totam omnis nihil qui?
-      Incidunt laudantium possimus inventore quam nostrum fuga sequi debitis expedita, eligendi accusamus. Commodi
-      laboriosam tempore iure et, optio nesciunt voluptate distinctio accusantium praesentium. Soluta, fuga qui enim
-      iusto adipisci ullam.
-      Dolore, quaerat ratione! Repellat odio debitis distinctio nemo excepturi! Voluptatum voluptates inventore facilis,
-      soluta hic sunt asperiores. Rem odit, culpa error blanditiis esse laudantium ratione numquam praesentium deleniti
-      impedit dicta!</p>
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <form action="/tweets/" method="POST">
+        <label for="tweet-text">What are you humming about?</label>
+        <textarea name="text" id="tweet-text"></textarea>
+        <div class="counterDiv">
+          <button type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </div>
+      </form>
+    </section>
+
   </main>
 </body>
 

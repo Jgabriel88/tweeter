@@ -1,0 +1,42 @@
+.new-tweet,form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #545149;
+  }
+
+.new-tweet{
+    width: 100%;
+  }
+
+button{
+  background-color: #4056A1;
+  color: #FFFFFF;
+  font-family: 'Bungee', cursive;
+  padding: 0.2em 0.4em;
+  border-radius: 5%;
+  align-self: flex-start;
+  
+}
+input{
+  align-self: flex-end;
+  background-color: #f4f1ec;
+}
+
+textarea{
+  background-color: #f4f1ec;
+  border: 0;
+  border-bottom: 5px solid  #545149;;
+}
+
+div{
+  align-self: flex-start;
+}
+
+.counterDiv{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Bungee', cursive;
+  margin-top: 1em;
+}
