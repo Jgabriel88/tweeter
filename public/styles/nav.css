@@ -3,10 +3,19 @@ nav{
   color: #FFFFFF;
   height: 120px;
   display: flex;
+  justify-content: space-between;
 }
 
-nav span{
+.logo{
   font-family: 'Bungee', cursive;
   padding: 1.5em;
+   }
+nav span{
+  padding: 1.5em;
+  font-family: 'Source Sans Pro', sans-serif;
+   }
+
+i{
+  align-self: flex-end;
   
- }
+}

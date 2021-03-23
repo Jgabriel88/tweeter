@@ -1,4 +1,9 @@
-.new-tweet,form{
+main{
+  display: flex;
+  flex-direction: column;
+}
+
+form, #tweetsContainer, #tweetsContainer header{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,4 +44,64 @@ div{
   width: 100%;
   font-family: 'Bungee', cursive;
   margin-top: 1em;
+}
+
+.counterRed{
+  color: red !important;
+  }
+
+#tweetsContainer article{
+  
+  border: 5px solid  #545149;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+#tweetsContainer footer{
+  padding-top: 0.3em;
+  border-top: 5px solid  #545149;;
+  width: 95%;
+  margin: auto;
+  margin-bottom: 1em;
+  display:flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  }
+
+#tweetsContainer header{
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.tweetInnerText{
+  padding: 1em;
+}
+
+#tweetsContainer header span{
+  position: absolute;
+  align-self: flex-end;
+}
+#tweetsContainer header i{
+  align-self: flex-start;
+}
+
+#tweetsContainer article:hover{
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.67);
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.67);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.67);
+}
+
+
+.userIdIn{
+  color: #8e9aaf
+}
+.userIdOut{
+  display: none;
 }
