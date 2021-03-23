@@ -4,6 +4,12 @@ nav{
   height: 120px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+body{
+  padding-top: 120px;
 }
 
 .logo{
@@ -19,3 +25,5 @@ i{
   align-self: flex-end;
   
 }
+
+
