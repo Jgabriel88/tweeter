@@ -1,4 +1,12 @@
+
+
 $(document).ready(function () {
+
+  const escape = function (str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   /*
    * Client-side JS logic goes here
    * jQuery is already loaded
@@ -6,13 +14,16 @@ $(document).ready(function () {
    */
 
   const renderTweets = function (data) {
+    $('#tweetsContainer').empty()
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-    for (const tweet of data) {
-      createTweetElement(tweet);
+    for (let i = data.length - 1; i >= 0; i--) {
+      createTweetElement(data[i]);
     }
   };
+
+
   const createTweetElement = function (tweet) {
     const milliseconds = tweet.created_at;
     const dateObject = new Date(milliseconds);
@@ -21,12 +32,12 @@ $(document).ready(function () {
     <article>
     <header>
     <img src='${tweet.user.avatars}' alt='avatar'>
-    <span class='userName'>${tweet.user.name}</span>
+    <span class='userName'>${escape(tweet.user.name)}</span>
     
-    <span class='userId userIdOut'>${tweet.user.handle}</span>
+    <span class='userId userIdOut'>${escape(tweet.user.handle)}</span>
     </header>
     <div class='tweetInnerText'>
-      ${tweet.content.text}
+      ${escape(tweet.content.text)}
     </div>
     <footer>
       ${humanDateFormat}
@@ -47,28 +58,38 @@ $(document).ready(function () {
 
   const handleSubmit = function (event) {
     event.preventDefault();
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: $(this).serialize()
-    })
-      .then(function (msg) {
-        console.log('Data Saved: ' + msg);
-      });
+    console.log($('textarea').val().length)
+    if ($('textarea').val().length > 140) {
+      alert("Tweet over 140 characters!")
+      throw new Error
+    }
+    else if ($('textarea').val().length === 0) {
+      alert("You cannot post an empty Tweet!")
+      throw new Error
+    } else {
+      $.ajax({
+        method: 'POST',
+        url: '/tweets',
+        data: $(this).serialize()
+      })
+        .then(function (msg) {
+          loadTweets()
+          console.log('Data Saved: ' + msg);
+        })
+    }
   };
 
-  $('form').on('submit', handleSubmit);
 
+  $('form').on('submit', handleSubmit);
 
   const loadTweets = function () {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:8080/tweets'
+      url: '/tweets'
     })
       .then(function (res) {
         renderTweets(res);
       });
   };
   loadTweets();
-
 });
