@@ -71,12 +71,14 @@ div{
   display:flex;
   justify-content: space-between;
   align-self: flex-end;
+  font-size: small;
   }
 
 #tweetsContainer header{
   padding: 1em;
   display: flex;
   justify-content: space-between;
+  
 
 }
 
@@ -84,12 +86,18 @@ div{
   padding: 1em;
 }
 
-#tweetsContainer header span{
+#tweetsContainer header .userId{
   position: absolute;
   align-self: flex-end;
 }
-#tweetsContainer header i{
-  align-self: flex-start;
+#tweetsContainer header img{
+  max-width: 50px;
+ 
+}
+.userName{
+    align-self: flex-start;
+    display: block;
+   
 }
 
 #tweetsContainer article:hover{
