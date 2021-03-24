@@ -52,6 +52,16 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="errorMessages">
+        <p id="errorMessageEmpty" class="emptyTweet"><i class="fas fa-exclamation"></i> ---You cannot post an empty
+          Tweet---
+          <i class="fas fa-exclamation"></i>
+        </p>
+        <p id="errorMessagesExedeed" class="excedeedTweet"><i class="fas fa-exclamation"></i> ---Tweet over 140
+          characters---
+          <i class="fas fa-exclamation"></i>
+        </p>
+      </div>
       <h2>Compose Tweet</h2>
       <form action="/tweets/" method="POST">
         <label for="tweet-text">What are you humming about?</label>

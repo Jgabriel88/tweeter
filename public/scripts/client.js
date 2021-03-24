@@ -37,7 +37,7 @@ $(document).ready(function () {
     <span class='userId userIdOut'>${escape(tweet.user.handle)}</span>
     </header>
     <div class='tweetInnerText'>
-      ${escape(tweet.content.text)}
+    <p>${escape(tweet.content.text)}</p>
     </div>
     <footer>
       ${humanDateFormat}
@@ -54,17 +54,15 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  // renderTweets(tweets)
 
   const handleSubmit = function (event) {
     event.preventDefault();
-    console.log($('textarea').val().length)
     if ($('textarea').val().length > 140) {
-      alert("Tweet over 140 characters!")
+      $('#errorMessagesExedeed').slideDown().removeClass('exeededTweet')
       throw new Error
     }
     else if ($('textarea').val().length === 0) {
-      alert("You cannot post an empty Tweet!")
+      $('#errorMessageEmpty').slideDown().removeClass('emptyTweet')
       throw new Error
     } else {
       $.ajax({
@@ -73,8 +71,9 @@ $(document).ready(function () {
         data: $(this).serialize()
       })
         .then(function (msg) {
+          $('#errorMessageEmpty').slideUp().addClass('emptyTweet')
+          $('#errorMessagesExedeed').slideUp().addClass('exeededTweet')
           loadTweets()
-          console.log('Data Saved: ' + msg);
         })
     }
   };
