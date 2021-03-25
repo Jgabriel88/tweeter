@@ -2,7 +2,11 @@
   height: 400px;
   background-color: #005ed1;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  padding-top: 95px;
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.profilePic{
+  padding-top: 0.2em;
 }
 
 .pageHeader div{
@@ -12,4 +16,14 @@
   background-color: #005ed1;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   
+}
+
+@media screen and (min-width: 1024px){
+  .pageHeader{
+    margin-top: 3em;
+    margin-left: 1em;
+    height: 300px;
+    padding-top: 35px;
+    
+  }
 }

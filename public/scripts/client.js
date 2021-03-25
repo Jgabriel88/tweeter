@@ -31,9 +31,10 @@ $(document).ready(function () {
     let $tweet = `
     <article>
     <header>
+    <div class="userAvatar">
     <img src='${tweet.user.avatars}' alt='avatar'>
     <span class='userName'>${escape(tweet.user.name)}</span>
-    
+    </div>
     <span class='userId userIdOut'>${escape(tweet.user.handle)}</span>
     </header>
     <div class='tweetInnerText'>

@@ -31,5 +31,57 @@ body {
   display:flex;
   background-color: #f4f1ec;
   justify-content: center;
+  margin-top: 1.7em;
+
+}
+
+h2{
+  font-family: 'Bungee', cursive;
+}
+
+
+
+@media screen and (min-width: 1024px){
+
+  body{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 120px;
+  }
+ 
+  main{
+    padding-top: 2em;
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
+  #tweetsContainer article, textarea, .counterDiv{
+    max-width: 70%;
+  }
   
+  #tweetsContainer header{
+    align-self: flex-start;
+    width: 95%;
+   
+  }
+  .container{
+    padding-left: 3em;
+    margin-top: 0;
+  }
+  #tweetsContainer .userId{
+    position: absolute;
+    align-self: flex-end;
+  }
+
+  img{
+    padding: 1em;
+  }
+  #tweetsContainer header img{
+    max-width: 100px;
+    align-self: flex-start;
+    padding: 0 1em 0 0;
+  }
+  .pageHeader h2{
+    font-size: 1em;
+  }
+   
 }
