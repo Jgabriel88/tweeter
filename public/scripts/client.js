@@ -58,7 +58,7 @@ $(document).ready(function () {
   const handleSubmit = function (event) {
     event.preventDefault();
     if ($('textarea').val().length > 140) {
-      $('#errorMessagesExedeed').slideDown().removeClass('exeededTweet')
+      $('#errorMessagesExcedeed').slideDown().removeClass('exeededTweet')
       throw new Error
     }
     else if ($('textarea').val().length === 0) {
@@ -72,7 +72,8 @@ $(document).ready(function () {
       })
         .then(function (msg) {
           $('#errorMessageEmpty').slideUp().addClass('emptyTweet')
-          $('#errorMessagesExedeed').slideUp().addClass('exeededTweet')
+          $('#errorMessagesExcedeed').slideUp().addClass('exeededTweet')
+          $('form').children('textarea').val('')
           loadTweets()
         })
     }
