@@ -190,6 +190,15 @@ background-color: #f4978e ;
   img{
     padding: 1em;
   }
+  #tweetsContainer header img{
+    max-width: 100px;
+    align-self: flex-start;
+    padding: 0 1em 0 0;
+  }
+  .userName{
+
+  }
+
 }
 
 
