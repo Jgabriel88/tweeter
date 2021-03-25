@@ -22,7 +22,7 @@ It makes use of responsive design, allowing for seemless use between desktop and
 ## Screenshots
 
 Tablet Display:
-!["Screenshot showing tablet display"](https://github.com/davidRamalho/tweeter/blob/master/docs/tablet-size.png?raw=true)
+!["Screenshot showing tablet display"](https://github.com/Jgabriel88/tweeter/blob/master/docs/tablet.png?raw=true)
 
 Desktop Display:
-!["Screenshot showing desktop display"](https://github.com/davidRamalho/tweeter/blob/master/docs/desktop-size.png?raw=true)
+!["Screenshot showing desktop display"](https://github.com/Jgabriel88/tweeter/blob/master/docs/desktop.png?raw=true)
