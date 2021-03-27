@@ -1,8 +1,8 @@
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -13,8 +13,8 @@ $(document).ready(function () {
    * Reminder: Use (and do all your DOM work in) jQuery's document ready function
    */
 
-  const renderTweets = function (data) {
-    $('#tweetsContainer').empty()
+  const renderTweets = function(data) {
+    $('#tweetsContainer').empty();
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -24,10 +24,19 @@ $(document).ready(function () {
   };
 
 
-  const createTweetElement = function (tweet) {
+  const createTweetElement = function(tweet) {
     const milliseconds = tweet.created_at;
     const dateObject = new Date(milliseconds);
     const humanDateFormat = dateObject.toLocaleString();
+    const currentDate = new Date();
+    const msInDay = 24 * 60 * 60 * 1000;
+    const diff = Math.floor((currentDate - milliseconds) / msInDay);
+    let timeAgo = '';
+    if (diff === 0 || diff > 1) {
+      timeAgo = 'Days ago.';
+    } else {
+      timeAgo = 'Day ago.';
+    }
     let $tweet = `
     <article>
     <header>
@@ -40,8 +49,8 @@ $(document).ready(function () {
     <div class='tweetInnerText'>
     <p>${escape(tweet.content.text)}</p>
     </div>
-    <footer>
-      ${humanDateFormat}
+    <footer class='timeStamp'>
+          ${diff} ${timeAgo}
       <div>
         <i class='fas fa-flag'></i>
         <i class='fas fa-retweet'></i>
@@ -56,39 +65,38 @@ $(document).ready(function () {
   };
 
 
-  const handleSubmit = function (event) {
+  const handleSubmit = function(event) {
     event.preventDefault();
     if ($('textarea').val().length > 140) {
-      $('#errorMessagesExcedeed').slideDown().removeClass('exeededTweet')
-      throw new Error
-    }
-    else if ($('textarea').val().length === 0) {
-      $('#errorMessageEmpty').slideDown().removeClass('emptyTweet')
-      throw new Error
+      $('#errorMessagesExcedeed').slideDown().removeClass('exeededTweet');
+      throw new Error;
+    } else if ($('textarea').val().length === 0) {
+      $('#errorMessageEmpty').slideDown().removeClass('emptyTweet');
+      throw new Error;
     } else {
       $.ajax({
         method: 'POST',
         url: '/tweets',
         data: $(this).serialize()
       })
-        .then(function (msg) {
-          $('#errorMessageEmpty').slideUp().addClass('emptyTweet')
-          $('#errorMessagesExcedeed').slideUp().addClass('exeededTweet')
-          $('form').children('textarea').val('')
-          loadTweets()
-        })
+        .then(function(msg) {
+          $('#errorMessageEmpty').slideUp().addClass('emptyTweet');
+          $('#errorMessagesExcedeed').slideUp().addClass('exeededTweet');
+          $('form').children('textarea').val('');
+          loadTweets();
+        });
     }
   };
 
 
   $('form').on('submit', handleSubmit);
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax({
       method: 'GET',
       url: '/tweets'
     })
-      .then(function (res) {
+      .then(function(res) {
         renderTweets(res);
       });
   };

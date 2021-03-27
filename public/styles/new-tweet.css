@@ -102,7 +102,7 @@ div{
   align-self: center;
   margin: 0;
   padding: 1em;
-  max-width: 1050px;
+  max-width: 90%;
   overflow-wrap: break-word;
 }
 
@@ -156,6 +156,11 @@ background-color: #f4978e ;
 .userAvatar{
   display: flex;
   align-items:center;
+}
+
+.timeStamp{
+  font-family: 'Bungee', cursive;
+  font-size: 0.1em;
 }
 
       
