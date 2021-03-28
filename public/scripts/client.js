@@ -1,8 +1,8 @@
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-  const escape = function(str) {
+  const escape = function (str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -13,18 +13,18 @@ $(document).ready(function() {
    * Reminder: Use (and do all your DOM work in) jQuery's document ready function
    */
 
-  const renderTweets = function(data) {
+  const renderTweets = function (data) {
     $('#tweetsContainer').empty();
+    for (const tweet of data) {
+      createTweetElement(tweet);
+    }
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-    for (let i = data.length - 1; i >= 0; i--) {
-      createTweetElement(data[i]);
-    }
   };
 
 
-  const createTweetElement = function(tweet) {
+  const createTweetElement = function (tweet) {
     const milliseconds = tweet.created_at;
     const dateObject = new Date(milliseconds);
     const humanDateFormat = dateObject.toLocaleString();
@@ -59,13 +59,13 @@ $(document).ready(function() {
     </footer>
   </article>`;
 
-    $('#tweetsContainer').append($tweet);
+    $('#tweetsContainer').prepend($tweet);
 
     return $tweet;
   };
 
 
-  const handleSubmit = function(event) {
+  const handleSubmit = function (event) {
     event.preventDefault();
     if ($('textarea').val().length > 140) {
       $('#errorMessagesExcedeed').slideDown().removeClass('exeededTweet');
@@ -79,10 +79,11 @@ $(document).ready(function() {
         url: '/tweets',
         data: $(this).serialize()
       })
-        .then(function(msg) {
+        .then(function (msg) {
           $('#errorMessageEmpty').slideUp().addClass('emptyTweet');
           $('#errorMessagesExcedeed').slideUp().addClass('exeededTweet');
           $('form').children('textarea').val('');
+          $('.counter').val(140)
           loadTweets();
         });
     }
@@ -91,12 +92,12 @@ $(document).ready(function() {
 
   $('form').on('submit', handleSubmit);
 
-  const loadTweets = function() {
+  const loadTweets = function () {
     $.ajax({
       method: 'GET',
       url: '/tweets'
     })
-      .then(function(res) {
+      .then(function (res) {
         renderTweets(res);
       });
   };

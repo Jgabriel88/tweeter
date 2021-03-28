@@ -91,7 +91,8 @@ div{
 .tweetInnerText{
   display: flex;
   padding: 1em;
-  max-width: 90%;
+  min-width: 90%;
+  max-width: 95%;
   padding: 0.1em;
   align-items: center;
   align-self: center;
